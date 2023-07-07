@@ -1,6 +1,6 @@
 const Newsletter = () => {
   return (
-    <h1>Newsletter</h1>
+    <h3>Newsletter</h3>
   )
 }
 export default Newsletter
