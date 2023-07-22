@@ -2,12 +2,13 @@
 
 This project is a `Single-Page Application` (SPA) built using `React` and `React Router`. It demonstrates how to set up routing and navigation in a React application using React Router. The project uses React Router version 6.11.2.
 
-### The tech stack behind the project
-- `JavaScript`
-- `React`: A powerful JavaScript library used to build the project.
+### Tech Stack
+- `JavaScript`: The foundational programming language for creating responsive and interactive features.
+- `React`: The powerful JavaScript library used to build the project: 
+- - `useState`: The React hook used to manage state.
 - `React Query`: Efficiently manages data fetching and API requests.
 - `React Query Devtools`: Inspects and debugs React Query data and caching behavior.
-- `React Router DOM`: Handles routing and navigation within the React application.
+- `React Router 6`: Handles routing and navigation within the React application.
 - - `Outlet`: Used in parent route elements to render their child route elements.
 - - `Link`: A component that lets the user navigate to another page by clicking or tapping on it.
 - - `NavLink`: A special kind of <Link> that knows whether or not it is "active" or "pending".
@@ -23,7 +24,7 @@ This project is a `Single-Page Application` (SPA) built using `React` and `React
 - `React Toastify`: Displays toast notifications in the React application.
 - `TheCocktailDB API`: Utilizes the API to retrieve cocktail-related data.
 
-### Discover the website
+### Explore The Website
 [SipCraft Website](https://sip-craft.netlify.app/)
 
 ### Preview

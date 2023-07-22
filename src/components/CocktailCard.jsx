@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom";
-import Wrapper from "../assets/wrappers/CocktailCard";
+import { Link } from 'react-router-dom';
+import Wrapper from '../assets/wrappers/CocktailCard';
 
 const CocktailCard = ({ img, name, id, glass, info }) => {
   return (
     <Wrapper>
-      <div className="img-container">
-        <img src={img} alt={name} className="img" />
+      <div className='img-container'>
+        <img src={img} alt={name} className='img' />
       </div>
-      <div className="footer">
+      <div className='footer'>
         <h4>{name}</h4>
         <h5>{glass}</h5>
         <p>{info}</p>
-        <Link to={`/cocktail/${id}`} className="btn">
+        <Link to={`/cocktail/${id}`} className='btn'>
           Details
         </Link>
       </div>

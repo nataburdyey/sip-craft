@@ -1,8 +1,8 @@
-import { Form, redirect, useNavigation } from "react-router-dom";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { Form, redirect, useNavigation } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
-const newsletterUrl = "https://www.course-api.com/cocktails-newsletter";
+const newsletterUrl = 'https://www.course-api.com/cocktails-newsletter';
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -10,7 +10,7 @@ export const action = async ({ request }) => {
   try {
     const response = await axios.post(newsletterUrl, data);
     toast.success(response.data.msg);
-    return redirect("/");
+    return redirect('/');
   } catch (error) {
     toast.error(error?.response?.data?.msg);
     return error;
@@ -19,56 +19,55 @@ export const action = async ({ request }) => {
 
 const Newsletter = () => {
   const navigation = useNavigation();
-  const isSubmitting = navigation.state === "submitting";
+  const isSubmitting = navigation.state === 'submitting';
   return (
-    <Form className="form" method="POST">
-      <h4 style={{ textAlign: "center", marginBottom: "2rem" }}>
+    <Form className='form' method='POST'>
+      <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>
         Our Newsletter
       </h4>
-      <div className="form-row">
-        <label htmlFor="name" className="form-label">
+      <div className='form-row'>
+        <label htmlFor='name' className='form-label'>
           Name
         </label>
         <input
-          type="text"
-          className="form-input"
-          name="name"
-          id="name"
+          type='text'
+          className='form-input'
+          name='name'
+          id='name'
           required
         />
       </div>
-      <div className="form-row">
-        <label htmlFor="lastName" className="form-label">
+      <div className='form-row'>
+        <label htmlFor='lastName' className='form-label'>
           Last Name
         </label>
         <input
-          type="text"
-          className="form-input"
-          name="lastName"
-          id="lastName"
+          type='text'
+          className='form-input'
+          name='lastName'
+          id='lastName'
           required
         />
       </div>
-      <div className="form-row">
-        <label htmlFor="email" className="form-label">
+      <div className='form-row'>
+        <label htmlFor='email' className='form-label'>
           Email
         </label>
         <input
-          type="text"
-          className="form-input"
-          name="email"
-          id="email"
-          defaultValue="test@test.com"
+          type='text'
+          className='form-input'
+          name='email'
+          id='email'
+          defaultValue='test@test.com'
           required
         />
       </div>
       <button
-        type="submit"
-        className="btn btn-block"
-        style={{ marginTop: "0,5rem" }}
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? "Submitting" : "Submit"}
+        type='submit'
+        className='btn btn-block'
+        style={{ marginTop: '0,5rem' }}
+        disabled={isSubmitting}>
+        {isSubmitting ? 'Submitting' : 'Submit'}
       </button>
     </Form>
   );

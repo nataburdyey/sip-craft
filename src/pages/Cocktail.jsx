@@ -1,15 +1,15 @@
-import { useLoaderData, Link, Navigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useLoaderData, Link, Navigate } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
-import Wrapper from "../assets/wrappers/CocktailPage";
+import Wrapper from '../assets/wrappers/CocktailPage';
 
 const singleCocktailUrl =
-  "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
+  'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
 
 const singleCocktailQuery = (id) => {
   return {
-    queryKey: ["cocktail", id],
+    queryKey: ['cocktail', id],
     queryFn: async () => {
       const { data } = await axios.get(`${singleCocktailUrl}${id}`);
       return data;
@@ -29,7 +29,7 @@ const Cocktail = () => {
   const { id } = useLoaderData();
 
   const { data } = useQuery(singleCocktailQuery(id));
-  if (!data) return <Navigate to="/" />;
+  if (!data) return <Navigate to='/' />;
 
   const singleDrink = data.drinks[0];
   const {
@@ -43,50 +43,50 @@ const Cocktail = () => {
 
   const validIngredients = Object.keys(singleDrink)
     .filter(
-      (key) => key.startsWith("strIngredient") && singleDrink[key] !== null
+      (key) => key.startsWith('strIngredient') && singleDrink[key] !== null
     )
     .map((key) => singleDrink[key]);
 
   return (
     <Wrapper>
       <header>
-        <Link to="/" className="btn">
+        <Link to='/' className='btn'>
           Back Home
         </Link>
       </header>
-      <div className="drink">
-        <img src={image} alt={name} className="img" />
-        <div className="drink-info">
+      <div className='drink'>
+        <img src={image} alt={name} className='img' />
+        <div className='drink-info'>
           <p>
-            <span className="drink-data">Name :</span>
+            <span className='drink-data'>Name :</span>
             {name}
           </p>
 
           <p>
-            <span className="drink-data">Category : </span>
+            <span className='drink-data'>Category : </span>
             {category}
           </p>
           <p>
-            <span className="drink-data">Info : </span>
+            <span className='drink-data'>Info : </span>
             {info}
           </p>
           <p>
-            <span className="drink-data">Glass : </span>
+            <span className='drink-data'>Glass : </span>
             {glass}
           </p>
           <p>
-            <span className="drink-data">Ingredients : </span>
+            <span className='drink-data'>Ingredients : </span>
             {validIngredients.map((item, index) => {
               return (
-                <span className="ing" key={item}>
+                <span className='ing' key={item}>
                   {item}
-                  {index < validIngredients.length - 1 ? "," : ""}
+                  {index < validIngredients.length - 1 ? ',' : ''}
                 </span>
               );
             })}
           </p>
           <p>
-            <span className="drink-data">Instructions : </span>
+            <span className='drink-data'>Instructions : </span>
             {instructions}
           </p>
         </div>
